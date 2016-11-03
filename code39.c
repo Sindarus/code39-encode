@@ -16,8 +16,7 @@ bool is_codable(const char* str){
     char c[] = {'?', '\0'};  // create a null-terminated string to send to strstr()
     for(int i = 0; i<len; i++){ // for each char of the string
         c[0] = str[i];          // prepare needle to send to strstr
-        if(strstr(AUTH_CHARS, c) == NULL){ // if the char is not authorized
-            printf("Le charactère %c n'est pas autorisé.\n", str[i]);
+        if(strstr(AUTH_CHARS, c) == NULL){
             return false;
         }
     }

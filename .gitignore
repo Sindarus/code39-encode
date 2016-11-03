@@ -1,0 +1,6 @@
+*.o
+do_code39
+tests
+exe
+*.pdf
+

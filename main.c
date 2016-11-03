@@ -9,6 +9,7 @@ int main(){
     char* line = NULL;
     size_t n_to_read = 0;
     char* converted_str = NULL;
+    char* checksumed_str = NULL;
     while(1){
         n_to_read = 0;
         printf("Entrez une chaine de charactère a encoder en code39, ou 0 pour quitter.\n");
@@ -23,8 +24,12 @@ int main(){
         else if(is_codable(line)){
             converted_str = prepare_for_coding(line);
             printf("Votre chaine à encoder est : %s\n", converted_str);
+            checksumed_str = add_code39_checksum(converted_str);
+            printf("Votre chaine à encoder avec checksum : %s\n", checksumed_str);
             free(converted_str);
             converted_str = NULL;
+            free(checksumed_str);
+            checksumed_str = NULL;
         }
         else{
             printf("Votre chaine ne peut pas être encodée en code39.\n");
